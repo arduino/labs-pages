@@ -31,16 +31,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Checkout Dependencies
+      - name: Checkout Camera Library
         uses: actions/checkout@v4
         with:
           repository: arduino/ArduinoCore-mbed
-          path: web-serial-camera
+          path: web-serial-camera/build
           sparse-checkout: |
-            libraries/Camera/extras/WebSerialCamera/
+            /libraries/Camera/extras/WebSerialCamera/
           fetch-depth: 1
-      - name: Debug
-        run: ls -la web-serial-camera
+      - name: Move Camera Library to root
+        run: |
+          echo "Before" \
+          ls -la web-serial-camera \
+          mv web-serial-camera/build/libraries/Camera/extras/WebSerialCamera/* web-serial-camera \
+          rm -rf web-serial-camera/build \
+          echo "After" \
+          ls -la web-serial-camera
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
