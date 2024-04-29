@@ -37,7 +37,7 @@ jobs:
           repository: arduino/ArduinoCore-mbed
           path: web-serial-camera/build
           sparse-checkout: |
-            /libraries/Camera/extras/WebSerialCamera/
+            libraries/Camera/extras/WebSerialCamera/
           fetch-depth: 1
       - name: Move Camera Library to root
         run: |
