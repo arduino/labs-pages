@@ -41,12 +41,12 @@ jobs:
           fetch-depth: 1
       - name: Move Camera Library to root
         run: |
-          echo "Before" \
-          ls -la web-serial-camera \
-          mv web-serial-camera/build/libraries/Camera/extras/WebSerialCamera/* web-serial-camera \
-          rm -rf web-serial-camera/build \
-          echo "After" \
-          ls -la web-serial-camera
+          echo "Before"
+          ls -l web-serial-camera/build 
+          mv web-serial-camera/build/libraries/Camera/extras/WebSerialCamera/* web-serial-camera 
+          rm -rf web-serial-camera/build 
+          echo "After" 
+          ls -l web-serial-camera
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
