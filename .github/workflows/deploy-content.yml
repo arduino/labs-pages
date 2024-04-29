@@ -42,7 +42,7 @@ jobs:
           path: web-serial-camera/build
           sparse-checkout: libraries/Camera/extras/WebSerialCamera/
           fetch-depth: 1
-      - name: Move Camera Library to root
+      - name: Move Camera Library to target directory
         run: |
           mv web-serial-camera/build/libraries/Camera/extras/WebSerialCamera/* web-serial-camera 
           rm -rf web-serial-camera/build
